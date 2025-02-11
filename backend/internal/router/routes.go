@@ -19,4 +19,8 @@ func SetupRoutes(router *gin.Engine) {
 	router.GET("/", home)
 
 	router.GET("/userId", middlewares.AuthMiddleware(), controller.GetUserId)
+
+	// Auth routes
+	router.POST("/login/google", controller.LoginWithGoogle)
+	router.POST("/login", controller.LoginWithPassword)
 }
